@@ -8,7 +8,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import "./style/style.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState } from "react";
 import validation from "./Validation";
 
