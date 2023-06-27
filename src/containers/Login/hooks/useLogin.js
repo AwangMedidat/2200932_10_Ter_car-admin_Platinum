@@ -26,7 +26,7 @@ function useLogin() {
     try {
       dispatch(loginStart());
       const response = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/auth/login",
+        "https://api-car-rental.binaracademy.org/admin/auth/login",
         formValue
       );
       dispatch(loginSuccess(response.data));
