@@ -1,20 +1,43 @@
-.bg1 {width: 85%; height: 100vh;}
-
+.bg1 {
+  width: 85%;
+  height: 100vh;
+}
 
 @media only screen and (max-width: 896px) {
-    /* For mobile phones: */
-    .form {}
-    .bg1 {display: none;}
+  /* For mobile phones: */
+  .form {
   }
+  .bg1 {
+    display: none;
+  }
+}
 
-  @media only screen and (max-width: 912px) {
-    /* For mobile phones: */
-    .bg1 {visibility: hidden;} 
+@media only screen and (max-width: 912px) {
+  /* For mobile phones: */
+  .bg1 {
+    visibility: hidden;
   }
+}
 
-  .center {
-    border: 5px solid;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
+.center {
+  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.offcanvas-body {
+  background-color: white;
+}
+
+.quarter-blue {
+  background-color: blue;
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+
+.content-wrapper {
+  float: left;
+  width: 75%;
+}
