@@ -4,11 +4,11 @@ import axios from "axios";
 
 export const getDataChart = (value) => (dispatch) => {
   axios
-    .get("https://api-car-rental.binaracademy.org/admin/v2/car/order?pageSize=1000", {
+    .get("https://api-car-rental.binaracademy.org/admin/v2/order?sort=created_at%3Adesc&page=1&pageSize=10", {
       headers: {
         "Content-Type": "application/json",
         accept: "Application/json",
-        access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTY3MDcxM30.pu-ESe4QOfLirSYImxk-Fncw-vbr6PqbpQ4fJZ6bZhE",
+        access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc",
       },
     })
     .then((res) => {
