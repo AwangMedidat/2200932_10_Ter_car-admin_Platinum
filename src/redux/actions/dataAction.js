@@ -22,7 +22,7 @@ export const getData = () => (dispatch) => {
 
 export const getMockData = () => (dispatch) => {
   axios
-    .get("http://localhost:3001/admin/car")
+    .get("http://localhost:3000/admin/car")
     .then((res) => {
       dispatch({
         type: TYPES.FETCH_DATA,
