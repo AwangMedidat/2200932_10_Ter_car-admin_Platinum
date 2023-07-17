@@ -5,7 +5,7 @@ import swal from "sweetalert";
 export const handleLogin = (payload, setErrMsg, navigate) => {
   return (dispatch) => {
     axios
-      .post("https://bootcamp-rent-cars.herokuapp.com/admin/auth/login", payload)
+      .post("https://api-car-rental.binaracademy.org/admin/auth/login", payload)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.access_token);
@@ -15,7 +15,7 @@ export const handleLogin = (payload, setErrMsg, navigate) => {
         });
         swal({
           title: "Welcome!",
-          text: "Logged in successfully",
+          text: "Logged in success",
           icon: "success",
           timer: 1500,
         });
