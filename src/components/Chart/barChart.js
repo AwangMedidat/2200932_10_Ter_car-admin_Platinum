@@ -2,19 +2,14 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement } from "chart.js";
 import moment from "moment";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
 const BarChart = () => {
-  const { chartData } = useSelector((state) => state.chartReducer)
-  const countData = {}
+  const { chartData } = useSelector((state) => state.chartReducer);
+  const countData = {};
   const [dataChart, setDataChart] = useState({
     labels: [],
     datasets: [
@@ -26,9 +21,11 @@ const BarChart = () => {
   });
 
   // FOR COUNT DUPLICATE AND SORTING
-  const dailyData = chartData.map((item) => moment(item, "D MMM").format("D"))
-  const sortData = dailyData.sort((a, b) => a.localeCompare(b))
-  sortData.forEach(function (x) { countData[x] = (countData[x] || 0) + 1; });
+  const dailyData = chartData.map((item) => moment(item, "D MMM").format("D"));
+  const sortData = dailyData.sort((a, b) => a.localeCompare(b));
+  sortData.forEach(function (x) {
+    countData[x] = (countData[x] || 0) + 1;
+  });
 
   useEffect(() => {
     setDataChart({
@@ -37,7 +34,7 @@ const BarChart = () => {
         {
           label: "Rental",
           data: Object.values(countData),
-          backgroundColor: "#586B90"
+          backgroundColor: "#586B90",
         },
       ],
     });
@@ -49,18 +46,18 @@ const BarChart = () => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "Date"
-        }
+          text: "Date",
+        },
       },
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: "Amout of Car Rented"
-        }
-      }
-    }
-  }
+          text: "Amout of Car Rented",
+        },
+      },
+    },
+  };
 
   return (
     <div>
