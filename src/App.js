@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AddPage from "./pages/AddPage";
 import ErrorPage from "./pages/ErrorPage";
 
-import LoginPage from "./pages/NotFoundPage/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         <Route path="cars/edit-car/:id" element={<EditPage />} />
       </Route>
 
-      <Route path="*" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
     </Route>
   )
 );
