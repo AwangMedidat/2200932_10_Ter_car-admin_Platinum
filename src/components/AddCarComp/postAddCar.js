@@ -2,11 +2,10 @@ import axios from "axios";
 import swal from "sweetalert";
 
 export const postAddCar = (data, navigate) => {
-    axios
-    .post(`https://bootcamp-rent-cars.herokuapp.com/admin/car`, data, {
+  axios
+    .post(`https://api-car-rental.binaracademy.org/admin/car`, data, {
       headers: {
-        access_token:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbHNhQHNhbHNhLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTY3MDM3N30.iR-2vyAeAZX11u7AOKXCgNJYey-_eg58E8zZVgu4Z7Y",
+        access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc",
       },
     })
     .then((res) => {
@@ -16,9 +15,9 @@ export const postAddCar = (data, navigate) => {
           text: "Berhasil Menambah Data",
           icon: "success",
           timer: 2000,
-        })
-        navigate("/dashboard/cars")
+        });
+        navigate("/dashboard/cars");
       }
     })
-    .catch((err) => console.log(err.message))
-}
+    .catch((err) => console.log(err.message));
+};
