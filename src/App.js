@@ -14,14 +14,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
+      <Route path="/" element={<LoginPage />} />
       <Route path="/dashboard" element={<Template />} errorElement={<ErrorPage />}>
         <Route path="" element={<Dashboard />} />
         <Route path="cars" element={<ListCar />} />
         <Route path="cars/add" element={<AddPage />} />
         <Route path="cars/edit-car/:id" element={<EditPage />} />
       </Route>
-
-      <Route path="/" element={<LoginPage />} />
     </Route>
   )
 );

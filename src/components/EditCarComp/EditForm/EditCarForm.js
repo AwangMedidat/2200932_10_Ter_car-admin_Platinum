@@ -1,12 +1,12 @@
 // style
-import "./EditCarForm.css"
+import "./EditCarForm.css";
 
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const EditCarForm = (props) => {
-  const { car } = useSelector((state) => state.car)
+  const { car } = useSelector((state) => state.car);
 
-  const { setCarName, setCarPrice, onImageUpload, setCarCategory } = props
+  const { setCarName, setCarPrice, onImageUpload, setCarCategory } = props;
 
   return (
     <section className="edit-car-form__container">
@@ -15,24 +15,13 @@ const EditCarForm = (props) => {
           <label>
             Name/Tipe Mobil<span>*</span>{" "}
           </label>
-          <input
-            onChange={(e) => setCarName(e.target.value)}
-            type="text"
-            placeholder={car.name}
-            required
-          />
+          <input onChange={(e) => setCarName(e.target.value)} type="text" placeholder={car.name} required />
         </div>
         <div>
           <label>
             Harga<span>*</span>
           </label>
-          <input
-            onChange={(e) => setCarPrice(e.target.value)}
-            type="number"
-            min="0"
-            required
-            placeholder={car.price}
-          />
+          <input onChange={(e) => setCarPrice(e.target.value)} type="number" min="0" required placeholder={car.price} />
         </div>
         <div className="form-upload">
           <label>
@@ -63,7 +52,7 @@ const EditCarForm = (props) => {
         </div>
       </form>
     </section>
-  )
-}
+  );
+};
 
-export default EditCarForm
+export default EditCarForm;

@@ -1,17 +1,19 @@
 import axios from "axios";
 import TYPES from "../types";
 import swal from "sweetalert";
+import auth from "../utils/auth";
 
 export const handleLogin = (payload, setErrMsg, navigate) => {
   return (dispatch) => {
     axios
       .post("https://api-car-rental.binaracademy.org/admin/auth/login", payload)
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.access_token);
+        // console.log(res.data, "<<<<<<<<<");
+        // localStorage.setItem("token", res.data.access_token);
+        auth.setAuth(res?.data);
         dispatch({
           type: TYPES.POST_LOGIN,
-          payload: res.data.access_token,
+          payload: res.data,
         });
         swal({
           title: "Welcome!",

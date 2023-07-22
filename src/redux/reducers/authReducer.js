@@ -1,14 +1,16 @@
 import TYPES from "../types";
+import auth from "../utils/auth";
 
 const initState = {
-  token: "",
+  user: auth.getAuth ?? null,
 };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case TYPES.POST_LOGIN:
       return {
-        token: action.payload,
+        ...state,
+        user: action.payload,
       };
     default:
       return state;
