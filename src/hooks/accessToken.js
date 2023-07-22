@@ -1,0 +1,3 @@
+const access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY4OTQwNzU1M30.tsPyUFrbTFmTo8S1IbfVyPnzLYENwZ86Q3yPgRWDtF8";
+
+export default access_token;
