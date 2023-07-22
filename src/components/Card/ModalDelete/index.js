@@ -2,16 +2,17 @@ import { ModalImg } from "../../../assets";
 import axios from "axios";
 import swal from "sweetalert";
 import { Modal, Button } from "react-bootstrap";
+import auth from "../../../redux/utils/auth";
 
 const ModalDelete = ({ show, handleClose, carId }) => {
   const handleDelete = (id) => {
-    console.log("Id yg terhapus", carId);
+    console.log("Id dihapus", carId);
     axios
-      .delete(`https://api-car-rental.binaracademy.org/admin/car${id}`, {
+      .delete(`https://api-car-rental.binaracademy.org/admin/car/${id}`, {
         headers: {
           "Content-Type": "Application/json",
           accept: "Application/json",
-          access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbHNhQHNhbHNhLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTY3MDM3N30.iR-2vyAeAZX11u7AOKXCgNJYey-_eg58E8zZVgu4Z7Y",
+          access_token: auth.getToken(),
         },
       })
       .then((res) => {
@@ -25,6 +26,7 @@ const ModalDelete = ({ show, handleClose, carId }) => {
             timer: 2000,
           });
           handleClose();
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err.message));

@@ -15,11 +15,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./style.scss";
 import TYPES from "../../redux/types";
 import Logo from "./../../assets/box1.svg";
+import auth from "../../redux/utils/auth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ handleSidebar, sidebar }) => {
   const counter = useSelector((state) => state.navbarReducer);
   console.log(counter);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState("");
   const open = Boolean(anchorEl);
@@ -27,7 +30,9 @@ const Navbar = ({ handleSidebar, sidebar }) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    // setAnchorEl(null);
+    auth.logout();
+    navigate("/");
   };
   const [expanded, setExpanded] = React.useState(false);
 

@@ -1,11 +1,12 @@
 import axios from "axios";
 import swal from "sweetalert";
+import auth from "../../redux/utils/auth";
 
 export const fetchEditCar = (data, navigate, id) => {
   axios
     .put(`https://api-car-rental.binaracademy.org/admin/car/${id}`, data, {
       headers: {
-        access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbHNhQHNhbHNhLmNvbSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTY3MDM3N30.iR-2vyAeAZX11u7AOKXCgNJYey-_eg58E8zZVgu4Z7Y",
+        access_token: auth.getToken(),
       },
     })
     .then((res) => {
