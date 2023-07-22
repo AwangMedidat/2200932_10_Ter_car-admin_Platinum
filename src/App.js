@@ -1,20 +1,41 @@
-import "./style/style.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Signin from "./pages/Signin/Signin";
-import Home from "./pages/Home/Home";
+import Dashboard from "./pages/Dashboard";
+import { Routes, Navigate } from "react-router-dom";
+import EditPage from "./pages/EditPage";
+import ListCar from "./pages/ListCar";
+
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from "react-router-dom";
+import Template from "./pages/Template";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AddPage from "./pages/AddPage";
+import ErrorPage from "./pages/ErrorPage";
+
+import LoginPage from "./pages/NotFoundPage/LoginPage";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route errorElement={<ErrorPage />}>
+      <Route path="/dashboard" element={<Template />} errorElement={<ErrorPage />}>
+        <Route path="" element={<Dashboard />} />
+        <Route path="cars" element={<ListCar />} />
+        <Route path="cars/add" element={<AddPage />} />
+        <Route path="cars/edit-car/:id" element={<EditPage />} />
+      </Route>
+
+      <Route path="*" element={<LoginPage />} />
+    </Route>
+  )
+);
+
+const queryClient = new QueryClient();
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/signin",
-      element: <Signin />,
-    },
-  ]);
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </div>
+  );
 }
 
 export default App;
